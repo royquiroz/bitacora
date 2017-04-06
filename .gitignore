@@ -1,0 +1,6 @@
+# NPM
+node_modules/
+
+# Otros
+npm-debug.log
+web.config

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Reporte Usuarios</title>
+    </head>
+
+    <body>
+        <h1>Reporte de Usuarios</h1>
+
+        <form action="/alta_reporte" method="post">
+            <label>Notaria:</label>
+            <input type="text" name="notaria">
+            <label>¿Quién y que solicita?</label>
+            <textarea name="solicita" rows="5" cols="18"></textarea>
+            <label>¿Que se realiza?</label>
+            <textarea name="accion" rows="5" cols="18"></textarea>
+            <label>¿Para que se realiza?</label>
+            <textarea name="finalidad" rows="5" cols="18"></textarea>
+            <label>Realizo:</label>
+            <input type="text" name="realizo">
+            <br>
+            <br>
+            <input type="submit" value="Guardar">
+        </form>
+
+        <hr>
+        <div>
+            <h3>Datos guardados</h3>
+            <div>
+				<table border="1">
+					<tr>
+						<th>Notaria</th>
+						<th>¿Quién y que solicita?</th>
+						<th>¿Que se realiza?</th>
+						<th>¿Para que se realiza?</th>
+						<th>Realizó</th>
+						<th>Hora y Fecha</th>
+					</tr>
+				<% for(var i = 0; i < docs.length; i++) {%>
+					<tr>
+						<td>
+							<%= docs[i].notaria %>
+						</td>
+						<td>
+							<%= docs[i].solicita %>
+						</td>
+						<td>
+							<%= docs[i].accion %>
+						</td>
+						<td>
+							<%= docs[i].finalidad %>
+						</td>
+						<td>
+							<%= docs[i].realizo %>
+						</td>
+						<td>
+							<%= moment(docs[i].fecha).format('Do MMMM, YYYY'); %>
+						</td>
+					</tr>
+				<% } %>
+				</table>
+            </div>
+        </div>
+    </body>
+
+</html>
